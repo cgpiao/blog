@@ -19,9 +19,10 @@ class UserFixtures extends Fixture
    public function load(ObjectManager $manager)
    {
       $user = new User();
+      $user->setUsername('piaocg');
+      $user->setRoles(['ROLE_USER']);
       $user->setPassword($this->passwordEncoder->encodePassword($user, '123456'));
-      // $product = new Product();
-      // $manager->persist($product);
+      $manager->persist($user);
 
       $manager->flush();
    }
